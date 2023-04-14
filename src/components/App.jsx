@@ -11,7 +11,7 @@ export class App extends Component {
     {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
     {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},],
-    filterStr: ''
+    filter: ''
   };
 
   addContact = data => {
@@ -29,21 +29,24 @@ export class App extends Component {
       return { contacts: prevState.contacts.filter(contact => contact.id !== id) };
     });
   };
-  onChangeFind = filterStr => {
-    this.setState(prevState => {
-      return { name: prevState.name.toLowerCase().includes(this.state.filterStr.toLowerCase()) };
-    });
+  onChangeFind = (ev) => {
+    // console.log(ev.target.value);
+    // const filterValue = ev.target.value.toLowerCase(); 
+  this.setState({filter:ev.currentTarget.value})
   };
-  
+  filteredContacts = () =>{
+    if(this.state.filter){
+      return this.state.contacts.filter(contact => contact.name.includes(this.state.filter))
+    } else {return this.state.contacts}
+  }
   render() { return(
     <div
       style={{
-        height: '100vh',
         display: 'flex',
         flexDirection: "column",
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 30,
+        fontSize: 20,
         color: '#010101'
       }}
     >
@@ -51,7 +54,7 @@ export class App extends Component {
     <AddContactForm addContact ={this.addContact}/>
     <h2>Contacts</h2>
     <FindContactForm onChangeFind={this.onChangeFind}/>
-    <ContactList contacts = {this.state.contacts} deleteContact={this.deleteContact}/>
+    <ContactList contacts = {this.state.contacts} onDeleteContact={this.deleteContact}/>
     </div>
   )
 }}
