@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'
 import {Contact} from '../contact/Contact'
 
 export const ContactList = ({contacts, onDeleteContact}) => {
@@ -12,4 +12,9 @@ export const ContactList = ({contacts, onDeleteContact}) => {
          })}
      </ul>
     )
- }
+ };
+
+ ContactList.propTypes = {
+    contacts: PropTypes.arrayOf(
+        PropTypes.string 
+    )}

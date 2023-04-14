@@ -4,6 +4,7 @@ import { AddContactForm } from './addForm/AddContactsForm';
 import { FindContactForm } from './findContact/FindContactForm';
 import { nanoid } from 'nanoid';
 
+
 export class App extends Component {
   state = {
     contacts: [
@@ -16,6 +17,8 @@ export class App extends Component {
   };
 
   addContact = data => {
+    if(this.state.contacts.find(item =>item.name === data.name))
+    {return alert(`Name ${data.name} is already in contacts!`)} 
     const newContact = {
       id: nanoid(),
       ...data,
@@ -67,4 +70,5 @@ export class App extends Component {
       </div>
     );
   }
-}
+};
+
