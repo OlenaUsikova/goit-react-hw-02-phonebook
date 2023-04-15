@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import {StyledInput} from '../addForm/AddForm.styled'
 
 export const FindContactForm = ({onChangeFind}) => {
@@ -9,3 +10,6 @@ export const FindContactForm = ({onChangeFind}) => {
         </>
     )
 }
+FindContactForm.propTypes = {
+    onChangeFind: PropTypes.func}
+  

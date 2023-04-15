@@ -49,6 +49,14 @@ export class AddContactForm extends Component {
   }
 };
 
-this.handleSubmit.propTypes = {
-  pros: PropTypes.string}
+AddContactForm.propTypes = {
+  addContact: PropTypes.func
+    }
 
+    //  AddContactForm.propTypes = {
+    //   addContact: PropTypes.arrayOf(
+    //     PropTypes.shape({
+    //     name: PropTypes.string,
+    //     number: PropTypes.string,
+    //      }))}
+    

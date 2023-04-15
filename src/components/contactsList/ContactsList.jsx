@@ -18,3 +18,6 @@ export const ContactList = ({contacts, onDeleteContact}) => {
     contacts: PropTypes.arrayOf(
         PropTypes.string 
     )}
+    ContactList.propTypes = {
+        contacts:PropTypes.array,
+      onDeleteContact: PropTypes.func}    
