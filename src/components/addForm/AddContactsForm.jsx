@@ -10,13 +10,14 @@ export class AddContactForm extends Component {
   handleChange = ( ev ) => {
     const{name, value} = ev.target;
     this.setState({ [name]: value });
-  };
+     };
   handleSubmit = ev => {
     ev.preventDefault();
-    this.props.addContact(this.state)
-
+    this.props.addContact(this.state);
+    this.setState({ name: '',
+    number: '',})
   };
-  render() {
+   render() {
     const { name, number } = this.state;
     return (
       <StyledForm onSubmit={this.handleSubmit}>
@@ -53,10 +54,4 @@ AddContactForm.propTypes = {
   addContact: PropTypes.func
     }
 
-    //  AddContactForm.propTypes = {
-    //   addContact: PropTypes.arrayOf(
-    //     PropTypes.shape({
-    //     name: PropTypes.string,
-    //     number: PropTypes.string,
-    //      }))}
-    
+

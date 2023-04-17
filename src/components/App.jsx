@@ -33,7 +33,7 @@ export class App extends Component {
         contacts: prevState.contacts.filter(contact => contact.id !== id),
       };
     });
-  };
+     };
   onChangeFind = ev => {
     this.setState({ filter: ev.currentTarget.value.toLowerCase() });
   };
